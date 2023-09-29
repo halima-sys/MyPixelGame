@@ -7,8 +7,8 @@ import 'package:pixel_adventure/levels/level.dart';
 class PixelAdventure extends FlameGame {
   Color backgroudColor() => const Color(0xFF211F30);
   late final CameraComponent cam;
-
-  final world = Level();
+//HERE to change levels...
+  final world = Level(levelName: 'level-02');
 
   @override
   FutureOr<void> onLoad() async {

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:pixel_adventure/pixel_adventure.dart';
 
 enum PlayerState { idle, running }
@@ -9,7 +8,7 @@ enum PlayerState { idle, running }
 class Player extends SpriteAnimationGroupComponent
     with HasGameRef<PixelAdventure> {
   String character;
-  Player({required this.character});
+  Player({position, required this.character}) : super(position: position);
   late final SpriteAnimation idleAnimation;
   late final SpriteAnimation runningAnimation;
   final double stepTime = 0.5;
@@ -21,16 +20,8 @@ class Player extends SpriteAnimationGroupComponent
   }
 
   void _loadAllAnimations() {
-    idleAnimation = SpriteAnimation.fromFrameData(
-      game.images.fromCache('Main Characters/Ninja Frog/Idle (32x32).png'),
-      SpriteAnimationData.sequenced(
-        amount: 11,
-        stepTime: stepTime,
-        textureSize: Vector2.all(32),
-      ),
-    );
-
-    runningAnimation = _spriteAnimation(character);
+    idleAnimation = _spriteAnimation('Idle', 11);
+    runningAnimation = _spriteAnimation('Run', 12);
 
     //List of all animations
     animations = {
@@ -38,14 +29,14 @@ class Player extends SpriteAnimationGroupComponent
       PlayerState.running: runningAnimation,
     };
 // Set current animation
-    current = PlayerState.running;
+    current = PlayerState.idle;
   }
 
-  SpriteAnimation _spriteAnimation(String character) {
+  SpriteAnimation _spriteAnimation(String state, int amount) {
     return SpriteAnimation.fromFrameData(
-      game.images.fromCache('Main Characters/$character/Run (32x32).png'),
+      game.images.fromCache('Main Characters/$character/$state (32x32).png'),
       SpriteAnimationData.sequenced(
-        amount: 12,
+        amount: amount,
         stepTime: stepTime,
         textureSize: Vector2.all(32),
       ),
