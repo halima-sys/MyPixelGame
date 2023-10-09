@@ -5,6 +5,7 @@
     },
     "activeFile": "level-01.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
         "Pixel Adventure.tsx": {
@@ -21,6 +22,17 @@
                 "x": 436.66666666666663,
                 "y": 77.33333333333337
             }
+        },
+        "level-02.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1.093984375,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 320.38848818110404,
+                "y": 184.6461472541598
+            }
         }
     },
     "last.imagePath": "C:/Users/ami/MyProjects/pixel_adventure/assets/images/Terrain",
@@ -31,11 +43,13 @@
     "map.width": 40,
     "openFiles": [
         "Pixel Adventure.tsx",
-        "level-01.tmx"
+        "level-01.tmx",
+        "level-02.tmx"
     ],
     "project": "Pixel Adventure.tiled-project",
     "recentFiles": [
         "Pixel Adventure.tsx",
+        "level-02.tmx",
         "level-01.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
